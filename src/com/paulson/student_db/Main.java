@@ -22,10 +22,14 @@ public class Main
         Fee_info_INTF fee=new Fee_info_IMPL();
         Student st = new Student();
         fee_amount fa=new fee_amount();
-        System.out.println("Welcome to Student Management System");
-        System.out.println("Are you a Student or a Teacher");
+        System.out.println("+--------------------------------------+");
+        System.out.println("|                                      |");
+        System.out.println("| Welcome to Student Management System |");
+        System.out.println("|                                      |");
+        System.out.println("+--------------------------------------+");
         while(true)
         {
+            System.out.println("Are you a Student or a Teacher");
             System.out.println("1. Student \n" +
                     "2. Teacher");
             System.out.println("Choose:");

@@ -25,20 +25,19 @@ public class Academics_IMPL implements Academics_INTF{
         con=DBCONNECTION.createDBConnection();
         String query="select academics.roll,student_info.name,academics.cgpa,academics.percentile from academics join student_info on student_info.roll=academics.roll";
         System.out.println("Student Report :");
-        System.out.println("---------------------------------------------");
-
-        System.out.format("%s %6s %6s %10s\n","Roll","Name","Cgpa","Percentile");
-        System.out.println("---------------------------------------------");
+        System.out.println("+--------+------------------+--------+------------+");
+        System.out.format("| %-6s | %-16s | %-6s | %-10s |\n","Roll","Name","Cgpa","Percentile");
+        System.out.println("+--------+------------------+--------+------------+");
         try{
             Statement stmt=con.createStatement();
             ResultSet result= stmt.executeQuery(query);
             while (result.next()){
-                System.out.format("%d %6s %6.2f %10.2f\n",
+                System.out.format("| %-6d | %-16s | %-6.2f | %-10.2f |\n",
                         result.getInt(1),
                         result.getString(2),
                         result.getDouble(3),
                         result.getDouble(4));
-                System.out.println("---------------------------------------------");
+                System.out.println("+--------+------------------+--------+------------+");
 
             }
 
@@ -54,16 +53,17 @@ public class Academics_IMPL implements Academics_INTF{
         try{
             Statement stmt=con.createStatement();
             ResultSet result= stmt.executeQuery(query);
-            System.out.println("---------------------------------------------");
-            System.out.format("%s %6s\t%6s\t%10s\t%6s\n","Roll","Name","CGPA","Percentile","Rank");
-            System.out.println("---------------------------------------------");
+            System.out.println("+--------+------------------+--------+------------+--------+");
+            System.out.format("| %-6s | %-16s | %-6s | %-10s | %-6s |\n","Roll","Name","CGPA","Percentile","Rank");
+            System.out.println("+--------+------------------+--------+------------+--------+");
             while (result.next()){
-                System.out.format("%d\t%6s\t%6.2f\t%6.2f\t%6d\n",
+                System.out.format("| %-6d | %-16s | %-6.2f | %-10.2f | %-6d |\n",
                         result.getInt(1),
                         result.getString(2),
                         result.getDouble(3),
                         result.getDouble(4),
                         result.getInt(5));
+                System.out.println("+--------+------------------+--------+------------+--------+");
             }
         }
         catch (Exception ex){
@@ -106,21 +106,20 @@ public class Academics_IMPL implements Academics_INTF{
         con=DBCONNECTION.createDBConnection();
         String query="select academics.roll,student_info.name,academics.cgpa,academics.percentile from academics join student_info on student_info.roll=academics.roll where academics.roll=?";
         System.out.println("Student Report :");
-        System.out.println("---------------------------------------------");
-
-        System.out.format("%s %6s\t%6s\t%8s\n","Roll","Name","Cgpa","Percentile");
-        System.out.println("---------------------------------------------");
+        System.out.println("+--------+------------------+--------+------------+");
+        System.out.format("| %-6s | %-16s | %-6s | %-10s |\n","Roll","Name","Cgpa","Percentile");
+        System.out.println("+--------+------------------+--------+------------+");
         try{
             PreparedStatement pstm=con.prepareStatement(query);
             pstm.setInt(1,ac.getRoll());
             ResultSet result= pstm.executeQuery();
             while (result.next()){
-                System.out.format("%d\t%6s\t%6.2f\t%6.2f\n",
+                System.out.format("| %-6d | %-16s | %-6.2f | %-10.2f |\n",
                         result.getInt(1),
                         result.getString(2),
                         result.getDouble(3),
                         result.getDouble(4));
-                System.out.println("---------------------------------------------");
+                System.out.println("+--------+------------------+--------+------------+");
 
             }
 

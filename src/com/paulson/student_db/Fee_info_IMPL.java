@@ -60,15 +60,15 @@ public class Fee_info_IMPL implements Fee_info_INTF
         con=DBCONNECTION.createDBConnection();
         String query="select student_info.name as 'NAME',fee_info.* from fee_info join student_info on student_info.roll=fee_info.roll_no";
         System.out.println("Fee Details :");
-        System.out.println("---------------------------------------------");
+        System.out.println("+------------------+--------+--------------+--------------+--------------+--------------+--------------+");
 
-        System.out.format("%s\t%10s\t%6s\t%10s\t%6s\t%6s\t%6s\n","Name","Roll","Tuition Fee","Hostel Fee","Total Fee","Fee Paid","Fee Due");
-        System.out.println("---------------------------------------------");
+        System.out.format("| %-16s | %-6s | %-12s | %-12s | %-12s | %-12s | %-12s |\n","Name","Roll","Tuition Fee","Hostel Fee","Total Fee","Fee Paid","Fee Due");
+        System.out.println("+------------------+--------+--------------+--------------+--------------+--------------+--------------+");
         try{
             Statement stmt=con.createStatement();
             ResultSet result= stmt.executeQuery(query);
             while (result.next()){
-                System.out.format("%s\t%10d\t%6d\t%10d\t%10d\t%10d\t%7d\n",
+                System.out.format("| %-16s | %-6d | %-12d | %-12d | %-12d | %-12d | %-12d |\n",
                         result.getString(1),
                         result.getInt(2),
                         result.getInt(3),
@@ -76,7 +76,7 @@ public class Fee_info_IMPL implements Fee_info_INTF
                         result.getInt(5),
                         result.getInt(6),
                         result.getInt(7));
-                System.out.println("---------------------------------------------");
+                System.out.println("+------------------+--------+--------------+--------------+--------------+--------------+--------------+");
             }
 
         }catch (Exception ex){
@@ -88,15 +88,15 @@ public class Fee_info_IMPL implements Fee_info_INTF
     public void displayFeeBasedOnRoll(Student st) {
         con=DBCONNECTION.createDBConnection();
         String query="select student_info.name as 'NAME',fee_info.* from fee_info join student_info on student_info.roll=fee_info.roll_no where fee_info.roll_no=?";
-
-        System.out.format("%s\t%10s\t%6s\t%10s\t%6s\t%6s\t%6s\n","Name","Roll","Tuition Fee","Hostel Fee","Total Fee","Fee Paid","Fee Due");
-        System.out.println("----------------------------------------------------------------------");
+        System.out.println("+------------------+--------+--------------+--------------+--------------+--------------+--------------+");
+        System.out.format("| %-16s | %-6s | %-12s | %-12s | %-12s | %-12s | %-12s |\n","Name","Roll","Tuition Fee","Hostel Fee","Total Fee","Fee Paid","Fee Due");
+        System.out.println("+------------------+--------+--------------+--------------+--------------+--------------+--------------+");
         try{
             PreparedStatement pstm=con.prepareStatement(query);
             pstm.setInt(1,st.getRoll());
             ResultSet result= pstm.executeQuery();
             while (result.next()){
-                System.out.format("%s\t%8d\t%6d\t%10d\t%10d\t%10d\t%7d\n",
+                System.out.format("| %-16s | %-6d | %-12d | %-12d | %-12d | %-12d | %-12d |\n",
                         result.getString(1),
                         result.getInt(2),
                         result.getInt(3),
@@ -104,7 +104,7 @@ public class Fee_info_IMPL implements Fee_info_INTF
                         result.getInt(5),
                         result.getInt(6),
                         result.getInt(7));
-                System.out.println("------------------------------------------------------------------------");
+                System.out.println("+------------------+--------+--------------+--------------+--------------+--------------+--------------+");
             }
 
         }catch (Exception ex){
@@ -117,15 +117,14 @@ public class Fee_info_IMPL implements Fee_info_INTF
         con=DBCONNECTION.createDBConnection();
         String query="select student_info.name as 'NAME',fee_info.* from fee_info join student_info on student_info.roll=fee_info.roll_no where fee_info.fee_due>0";
         System.out.println("Defaulters List:");
-        System.out.println("---------------------------------------------");
-
-        System.out.format("%s\t%10s\t%6s\t%10s\t%6s\t%6s\t%6s\n","Name","Roll","Tuition Fee","Hostel Fee","Total Fee","Fee Paid","Fee Due");
-        System.out.println("---------------------------------------------");
+        System.out.println("+------------------+--------+--------------+--------------+--------------+--------------+--------------+");
+        System.out.format("| %-16s | %-6s | %-12s | %-12s | %-12s | %-12s | %-12s |\n","Name","Roll","Tuition Fee","Hostel Fee","Total Fee","Fee Paid","Fee Due");
+        System.out.println("+------------------+--------+--------------+--------------+--------------+--------------+--------------+");
         try{
             Statement stmt=con.createStatement();
             ResultSet result= stmt.executeQuery(query);
             while (result.next()){
-                System.out.format("%s\t%8d\t%6d\t%10d\t%10d\t%10d\t%7d\n",
+                System.out.format("| %-16s | %-6d | %-12d | %-12d | %-12d | %-12d | %-12d |\n",
                         result.getString(1),
                         result.getInt(2),
                         result.getInt(3),
@@ -133,7 +132,7 @@ public class Fee_info_IMPL implements Fee_info_INTF
                         result.getInt(5),
                         result.getInt(6),
                         result.getInt(7));
-                System.out.println("---------------------------------------------");
+                System.out.println("+------------------+--------+--------------+--------------+--------------+--------------+--------------+");
             }
 
         }catch (Exception ex){

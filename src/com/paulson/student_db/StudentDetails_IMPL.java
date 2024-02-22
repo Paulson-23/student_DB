@@ -35,22 +35,21 @@ public class StudentDetails_IMPL implements StudentDetails_INTF
         con=DBCONNECTION.createDBConnection();
         String query="select * from student_info";
         System.out.println("Student Details :");
-        System.out.println("---------------------------------------------");
-
-        System.out.format("%s\t%6s\t%10s\t%6s\t%6s\t%6s\n","Roll","Name","Dept","Year","Quota","Hosteler");
-        System.out.println("---------------------------------------------");
+        System.out.println("+--------+------------------+--------+-------+--------+----------+");
+        System.out.format("| %-6s | %-16s | %-6s | %-5s | %-6s | %-8s |\n","Roll","Name","Dept","Year","Quota","Hosteler");
+        System.out.println("+--------+------------------+--------+-------+--------+----------+");
         try{
             Statement stmt=con.createStatement();
             ResultSet result= stmt.executeQuery(query);
             while (result.next()){
-                System.out.format("%4d\t%6s\t%10s\t%6d\t%6s\t%6s\n",
+                System.out.format("| %-6d | %-16s | %-6s | %-5d | %-6s | %8s |\n",
                         result.getInt(1),
                         result.getString(2),
                         result.getString(3),
                         result.getInt(4),
                         result.getString(5),
                         result.getString(6));
-                System.out.println("---------------------------------------------");
+                        System.out.println("+--------+------------------+--------+-------+--------+----------+");
             }
 
         }catch (Exception ex){
@@ -66,11 +65,11 @@ public class StudentDetails_IMPL implements StudentDetails_INTF
             PreparedStatement pstm=con.prepareStatement(query);
             pstm.setInt(1,st.getRoll());
             ResultSet result= pstm.executeQuery();
-            System.out.println("---------------------------------------------");
-            System.out.format("%s\t%6s\t%10s\t%6s\t%6s\t%6s\n","Roll","Name","Dept","Year","Quota","Hosteler");
-            System.out.println("---------------------------------------------");
+            System.out.println("+--------+------------------+--------+-------+--------+----------+");
+            System.out.format("| %-6s | %-16s | %-6s | %-5s | %-6s | %-8s |\n","Roll","Name","Dept","Year","Quota","Hosteler");
+            System.out.println("+--------+------------------+--------+-------+--------+----------+");
             while (result.next()){
-                System.out.format("%d\t%10s\t%10s\t%6d\t%6s\t%6s\n",
+                System.out.format("| %-6d | %-16s | %-6s | %-5d | %-6s | %8s |\n",
                         result.getInt(1),
                         result.getString(2),
                         result.getString(3),
@@ -78,7 +77,7 @@ public class StudentDetails_IMPL implements StudentDetails_INTF
                         result.getString(5),
                         result.getString(6));
             }
-            System.out.println("---------------------------------------------");
+            System.out.println("+--------+------------------+--------+-------+--------+----------+");
         }
         catch (Exception ex){
             ex.printStackTrace();

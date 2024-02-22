@@ -44,14 +44,15 @@ public class User_credentials_IMPL implements User_credentials_INTF {
     {
         con=DBCONNECTION.createDBConnection();
         String query="select * from user_credentials";
-        System.out.println("Users Authorized:");
-        System.out.println("----------------");
+        System.out.println("+--------------------+");
+        System.out.println("|Users Authorized    |");
+        System.out.println("+--------------------+");
         try{
             Statement stmt=con.createStatement();
             ResultSet result= stmt.executeQuery(query);
             while (result.next()){
-                System.out.format("%s\n", result.getString(1));
-                System.out.println("----------");
+                System.out.format("| %-19s|\n", result.getString(1));
+                System.out.println("+--------------------+");
             }
         }catch (Exception ex){
             ex.printStackTrace();

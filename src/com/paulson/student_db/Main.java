@@ -42,30 +42,30 @@ public class Main
                     {
                         while(true)
                         {
-                        System.out.println("What would you like to do:");
-                        System.out.println("""
-                                1. Check the information
-                                2. Check academic performance
-                                3. Check fee_details
-                                4. Exit""");
-                        System.out.println("Please select your choice:");
-                        int option=sc.nextInt();
-                            switch (option)
-                            {
-                                case 1:
-                                    det.showStudentBasedonRoll(st);
-                                    break;
-                                case 2:
-                                    rep.displayReportsbasedOnRoll(ac);
-                                    break;
-                                case 3:
-                                    fee.displayFeeBasedOnRoll(st);
-                                    break;
-                                case 4:
-                                    System.exit(0);
-                                default:
-                                    System.out.println("Invalid choice");
-                            }
+                            System.out.println("What would you like to do:");
+                            System.out.println("""
+                                    1. Check the information
+                                    2. Check academic performance
+                                    3. Check fee_details
+                                    4. Exit""");
+                            System.out.println("Please select your choice:");
+                            int option=sc.nextInt();
+                                switch (option)
+                                {
+                                    case 1:
+                                        det.showStudentBasedonRoll(st);
+                                        break;
+                                    case 2:
+                                        rep.displayReportsbasedOnRoll(ac);
+                                        break;
+                                    case 3:
+                                        fee.displayFeeBasedOnRoll(st);
+                                        break;
+                                    case 4:
+                                        System.exit(0);
+                                    default:
+                                        System.out.println("Invalid choice");
+                                }
                         }
                     }
                     break;
@@ -141,7 +141,8 @@ public class Main
                                                 System.out.println("Enter Roll : ");
                                                 roll = sc.nextInt();
                                                 System.out.println("Enter Name ");
-                                                name = sc.next();
+                                                name=sc.nextLine();
+                                                name = sc.nextLine();
                                                 System.out.println("Enter Department ");
                                                 dept = sc.next();
                                                 System.out.println("Enter year");

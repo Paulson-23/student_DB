@@ -43,10 +43,11 @@ public class Main
                         while(true)
                         {
                         System.out.println("What would you like to do:");
-                        System.out.println("1. Check the information\n" +
-                                "2. Check academic performance\n" +
-                                "3. Check fee_details\n" +
-                                "4. Exit");
+                        System.out.println("""
+                                1. Check the information
+                                2. Check academic performance
+                                3. Check fee_details
+                                4. Exit""");
                         System.out.println("Please select your choice:");
                         int option=sc.nextInt();
                             switch (option)
@@ -81,12 +82,14 @@ public class Main
                         {
                             while (true)
                             {
-                                System.out.println("Welcome Principal\n" +
-                                        "What would you like to do\n" +
-                                        "1. Add User\n" +
-                                        "2. View Users\n" +
-                                        "3. Remove User\n" +
-                                        "4. Exit\n");
+                                System.out.println("""
+                                        Welcome Principal
+                                        What would you like to do
+                                        1. Add User
+                                        2. View Users
+                                        3. Remove User
+                                        4. Exit
+                                        """);
                                 System.out.println("Enter your choice:");
                                 int choose = sc.nextInt();
                                 switch (choose)
@@ -113,21 +116,23 @@ public class Main
                         }
                         else if (login.check(ld))
                         {
-                            System.out.println("1. Student Information\n" +
-                                    "2. Academics\n" +
-                                    "3. Fee Details\n" +
-                                    "4. Reset Password");
+                            System.out.println("""
+                                    1. Student Information
+                                    2. Academics
+                                    3. Fee Details
+                                    4. Reset Password""");
                             System.out.println("Enter Choice: ");
                             int select = sc.nextInt();
                             while (true) {
                                 if (select == 1) {
                                     do {
-                                        System.out.println("Student Information\n" +
-                                                "1. Add Student\n" +
-                                                "2. Show All Students\n" +
-                                                "3. Show Student based on roll \n" +
-                                                "4. Delete the Student\n" +
-                                                "5. Quit");
+                                        System.out.println("""
+                                                Student Information
+                                                1. Add Student
+                                                2. Show All Students
+                                                3. Show Student based on roll
+                                                4. Delete the Student
+                                                5. Quit""");
                                         System.out.println("Enter Choice: ");
                                         int ch = sc.nextInt();
                                         switch (ch)
@@ -185,11 +190,12 @@ public class Main
                                 else if (select == 2)
                                 {
                                     do {
-                                        System.out.println("Academic Reports:\n" +
-                                                "1. Update Reports\n" +
-                                                "2. Display Reports\n" +
-                                                "3. Display Ranking of Students\n" +
-                                                "4. Quit");
+                                        System.out.println("""
+                                                Academic Reports:
+                                                1. Update Reports
+                                                2. Display Reports
+                                                3. Display Ranking of Students
+                                                4. Quit""");
                                         System.out.println("Enter Choice: ");
                                         int ch2 = sc.nextInt();
                                         switch (ch2) {
@@ -222,10 +228,11 @@ public class Main
                                     {
                                         System.out.println("Welcome to Fee details tab\n" +
                                                 "What would you like to do");
-                                        System.out.println("1. View Fee Details\n" +
-                                                "2. View defaulters List\n" +
-                                                "3. Update fee payment amount\n" +
-                                                "4. Exit");
+                                        System.out.println("""
+                                                1. View Fee Details
+                                                2. View defaulters List
+                                                3. Update fee payment amount
+                                                4. Exit""");
                                         System.out.println("Select your choice");
                                         int choose = sc.nextInt();
                                         switch(choose)

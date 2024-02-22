@@ -14,7 +14,7 @@ public class Academics_IMPL implements Academics_INTF{
             PreparedStatement pstm=con.prepareStatement(query);
             pstm.setInt(1,st.getRoll());
             pstm.setInt(2,0);
-            int cnt= pstm.executeUpdate();
+            pstm.executeUpdate();
         }catch (Exception ex){
             ex.printStackTrace();
         }
@@ -27,16 +27,17 @@ public class Academics_IMPL implements Academics_INTF{
         System.out.println("Student Report :");
         System.out.println("---------------------------------------------");
 
-        System.out.format("%s %6s %10s\n","Roll","Cgpa","Percentile");
+        System.out.format("%s %6s %6s %10s\n","Roll","Name","Cgpa","Percentile");
         System.out.println("---------------------------------------------");
         try{
             Statement stmt=con.createStatement();
             ResultSet result= stmt.executeQuery(query);
             while (result.next()){
-                System.out.format("%d %6.2f %10.2f\n",
+                System.out.format("%d %6s %6.2f %10.2f\n",
                         result.getInt(1),
-                        result.getDouble(2),
-                        result.getDouble(3));
+                        result.getString(2),
+                        result.getDouble(3),
+                        result.getDouble(4));
                 System.out.println("---------------------------------------------");
 
             }

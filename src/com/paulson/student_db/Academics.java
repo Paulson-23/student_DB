@@ -7,11 +7,6 @@ public class Academics {
     public Academics(){
 
     }
-    public Academics(int roll, double cgpa) {
-        this.roll = roll;
-        this.cgpa = cgpa;
-    }
-
     public int getRoll()
     {
         return roll;
